@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.affordable.ui.main.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_preferencesActivity2"
+            app:destination="@id/preferencesActivity2" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.affordable.ui.main.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_startActivity"
+            app:destination="@id/startActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.affordable.ui.main.account.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_startActivity"
+            app:destination="@id/startActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="com.affordable.ui.main.cards.CardsFragment"
+        android:label="Cards"
+        tools:layout="@layout/fragment_cards" />
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.affordable.ui.main.feedback.FeedbackFragment"
+        android:label="Feedback"
+        tools:layout="@layout/fragment_feedback" />
+    <activity
+        android:id="@+id/preferencesActivity2"
+        android:name="com.affordable.ui.main.preferences.PreferencesActivity"
+        android:label="PreferencesActivity" />
+    <activity
+        android:id="@+id/startActivity"
+        android:name="com.affordable.ui.start.StartActivity"
+        android:label="activity_start"
+        tools:layout="@layout/activity_start" />
+</navigation>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="@dimen/_20sdp"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.feedback.FeedbackFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_36sdp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_24sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/TextViewStyle30B"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="@color/blueLightColor"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:text="Please provide your feedback" />
+
+
+        <com.hadi.emojiratingbar.EmojiRatingBar
+            android:id="@+id/emoji_rating_bar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_medium"
+            app:defaultValue="OKAY"
+            app:showAllText="false"
+            app:showText="false"
+            app:titleColor="#844848" />
+
+        <EditText
+            android:id="@+id/edtYourFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="top"
+            android:hint="Pleease add details so we can improve the app"
+            android:background="@drawable/bg_rounded_black"
+            android:minLines="4"
+            android:inputType="textMultiLine"
+            android:maxLines="100"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text=""
+            android:textColorHint="@color/grayColor" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next"
+            style="@style/TextViewStyle11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:backgroundTint="@color/blueLightColor"
+            android:fontFamily="@font/inter_bold"
+            android:paddingHorizontal="@dimen/_46sdp"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_10sdp"
+            android:shadowColor="@color/grayColor"
+            android:text="Send"
+            android:textColor="@color/whiteColor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            android:visibility="visible"
+            app:cornerRadius="@dimen/_8sdp" />
+
+    </LinearLayout>
+</ScrollView>

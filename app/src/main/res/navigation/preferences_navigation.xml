@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/preferences_navigation"
+    app:startDestination="@id/cardSelectionFragment">
+
+    <fragment
+        android:id="@+id/cardSelectionFragment"
+        android:name="com.affordable.ui.main.preferences.cardSelection.CardSelectionFragment"
+        android:label="fragment_card_selection"
+        tools:layout="@layout/fragment_card_selection" >
+        <action
+            android:id="@+id/action_cardSelectionFragment_to_choiceSelectionFragment"
+            app:destination="@id/choiceSelectionFragment" />
+        <action
+            android:id="@+id/action_cardSelectionFragment_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiceSelectionFragment"
+        android:name="com.affordable.ui.main.preferences.choiceSelection.ChoiceSelectionFragment"
+        android:label="fragment_choice_selection"
+        tools:layout="@layout/fragment_choice_selection" >
+        <action
+            android:id="@+id/action_choiceSelectionFragment_to_shoppingSelectionFragment"
+            app:destination="@id/shoppingSelectionFragment" />
+        <action
+            android:id="@+id/action_choiceSelectionFragment_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingSelectionFragment"
+        android:name="com.affordable.ui.main.preferences.shoppingSelection.ShoppingSelectionFragment"
+        android:label="fragment_shopping_selection"
+        tools:layout="@layout/fragment_shopping_selection" >
+        <action
+            android:id="@+id/action_shoppingSelectionFragment_to_thanksFragment"
+            app:destination="@id/thanksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thanksFragment"
+        android:name="com.affordable.ui.main.preferences.thanks.ThanksFragment"
+        android:label="fragment_thanks"
+        tools:layout="@layout/fragment_thanks" >
+        <action
+            android:id="@+id/action_thanksFragment_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity2"
+        android:name="com.affordable.ui.main.MainActivity"
+        android:label="MainActivity" />
+</navigation>

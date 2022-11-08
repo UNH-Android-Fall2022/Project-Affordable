@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/homeFragment"
+        android:icon="@drawable/ic_round_home_24"
+        android:title="Home" />
+
+    <item
+        android:id="@id/cardsFragment"
+        android:icon="@drawable/ic_baseline_credit_card_24"
+        android:title="Cards" />
+
+    <item
+        android:id="@id/accountFragment"
+        android:icon="@drawable/ic_round_account_circle_24"
+        android:title="Account" />
+
+    <item
+        android:id="@id/settingsFragment"
+        android:icon="@drawable/ic_round_settings_24"
+        android:title="Settings" />
+
+    <item
+        android:id="@id/feedbackFragment"
+        android:icon="@drawable/ic_baseline_feedback_24"
+        android:title="Feedback" />
+</menu>
