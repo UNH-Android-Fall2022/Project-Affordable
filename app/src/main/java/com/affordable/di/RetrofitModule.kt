@@ -57,7 +57,6 @@ private fun Scope.retrofitHttpClient(): OkHttpClient {
         writeTimeout(WRITE_TIMEOUT, TimeUnit.MINUTES)
         readTimeout(READ_TIMEOUT, TimeUnit.MINUTES)
         retryOnConnectionFailure(true)
-        addInterceptor(get())
         addInterceptor(HttpLoggingInterceptor().apply {
             level = if (true) {
                 HttpLoggingInterceptor.Level.HEADERS

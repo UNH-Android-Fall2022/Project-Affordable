@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.affordable.R
 import com.affordable.base.BaseFragment
 import com.affordable.data.models.CardsModel
 import com.affordable.databinding.FragmentCardsBinding
@@ -55,24 +56,9 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
 
     private fun getCardsDataList(): ArrayList<CardsModel> {
         var dataList = ArrayList<CardsModel>()
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
+        dataList.add(CardsModel(1, "", "", R.drawable.img_alibaba, false))
+        dataList.add(CardsModel(1, "", "", R.drawable.img_bestbuy, false))
+        dataList.add(CardsModel(1, "", "", R.drawable.img_amazon, false))
         return dataList
     }
 }

@@ -65,24 +65,9 @@ class CardSelectionFragment : BaseFragment<FragmentCardSelectionBinding>() {
 
     private fun getCardsDataList(): ArrayList<CardsModel> {
         var dataList = ArrayList<CardsModel>()
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
-        dataList.add(CardsModel(1, "", "", false))
+        dataList.add(CardsModel(1, "", "", R.drawable.visa_img, false))
+        dataList.add(CardsModel(1, "", "", R.drawable.img_master, false))
+        dataList.add(CardsModel(1, "", "", R.drawable.img_american, false))
         return dataList
     }
 

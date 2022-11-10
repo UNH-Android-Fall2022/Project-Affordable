@@ -37,6 +37,8 @@ class CardsRecyclerviewAdapter(
 
                 binding.image.visibility = View.VISIBLE
 
+                binding.image.setImageResource(this.cardUrl)
+
                 binding.cardview.setOnClickListener {
                     if (binding.radioBtn.isChecked) {
                         binding.radioBtn.isChecked = false

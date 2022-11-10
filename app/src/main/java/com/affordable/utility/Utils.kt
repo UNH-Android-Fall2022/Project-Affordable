@@ -3,6 +3,7 @@ package com.affordable.utility
 import android.os.Looper
 import android.text.TextUtils
 import android.util.Patterns
+import java.util.regex.Pattern
 
 
 class Utils {
@@ -31,4 +32,12 @@ fun ensureBackgroundThread(callback: () -> Unit) {
     }
 }
 
+fun String.isValidEmail(): Boolean {
+    val pattern: Pattern = Patterns.EMAIL_ADDRESS
+    return pattern.matcher(this).matches()
+}
+
+fun String.isValidPassword(): Boolean {
+    return !this.trim().isEmpty() && this.trim().length >=6
+}
 

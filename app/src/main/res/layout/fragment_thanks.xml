@@ -51,7 +51,7 @@
                 android:fontFamily="@font/inter_bold"
                 android:gravity="center_horizontal"
                 android:layout_marginHorizontal="@dimen/_12sdp"
-                android:text="Affordable found 767 deals based on your preferences"
+                android:text="Affordable found 0 deals based on your preferences"
                 android:textColor="@color/greenColor"
                 android:textSize="16sp" />
 

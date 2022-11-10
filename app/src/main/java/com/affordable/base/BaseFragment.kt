@@ -13,14 +13,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
-import android.widget.LinearLayout
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.affordable.R
+import com.affordable.utility.NetworkHelper
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 abstract class BaseFragment<VB> : Fragment() {
@@ -32,7 +33,17 @@ abstract class BaseFragment<VB> : Fragment() {
     lateinit var mNavController: NavController
     protected open val navController: NavController get() = mNavController
 
+    protected lateinit var mFirestore: FirebaseFirestore
+    protected lateinit var auth: FirebaseAuth
 
+    protected lateinit var networkHelper: NetworkHelper
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mFirestore = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
+        networkHelper = NetworkHelper(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

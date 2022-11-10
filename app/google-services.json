@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "401656157507",
+    "project_id": "affordable-a72db",
+    "storage_bucket": "affordable-a72db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401656157507:android:c7fda88284e2d2080bcbf6",
+        "android_client_info": {
+          "package_name": "com.affordable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401656157507-e1gler2p8er98g9gg63di2461jjqkh7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqDN9ZLlFtMtomSbw14gXIbpYRYpnSROI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401656157507-e1gler2p8er98g9gg63di2461jjqkh7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

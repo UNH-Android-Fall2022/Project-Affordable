@@ -70,24 +70,9 @@ class ChoiceSelectionFragment : BaseFragment<FragmentChoiceSelectionBinding>() {
 
     private fun getCardsDataList(): ArrayList<ChoiceShoppingModel> {
         var dataList = ArrayList<ChoiceShoppingModel>()
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
-        dataList.add(ChoiceShoppingModel(1, "", "", false))
+        dataList.add(ChoiceShoppingModel(1, "", "", R.drawable.img_bestbuy,false))
+        dataList.add(ChoiceShoppingModel(1, "", "", R.drawable.img_alibaba,false))
+        dataList.add(ChoiceShoppingModel(1, "", "", R.drawable.img_amazon,false))
         return dataList
     }
 }
