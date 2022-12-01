@@ -12,11 +12,6 @@
         android:title="Cards" />
 
     <item
-        android:id="@id/accountFragment"
-        android:icon="@drawable/ic_round_account_circle_24"
-        android:title="Account" />
-
-    <item
         android:id="@id/settingsFragment"
         android:icon="@drawable/ic_round_settings_24"
         android:title="Settings" />

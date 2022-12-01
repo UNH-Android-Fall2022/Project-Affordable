@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.affordable.base.BaseFragment
 import com.affordable.databinding.FragmentFeedbackBinding
+import com.hadi.emojiratingbar.RateStatus
 
 class FeedbackFragment : BaseFragment<FragmentFeedbackBinding>() {
 
@@ -32,6 +33,18 @@ class FeedbackFragment : BaseFragment<FragmentFeedbackBinding>() {
 
         with(binding!!) {
 
+            sendFeedback.setOnClickListener {
+                if(edtYourFeedback.text.toString().trim().isEmpty()){
+                    showToastShort("Please write feedback")
+                }else{
+                    submitFeedback(emojiRatingBar.getCurrentRateStatus().toString(),edtYourFeedback.text.toString().trim()){
+                        showToastShort(it)
+                        emojiRatingBar.setCurrentRateStatus(RateStatus.OKAY)
+                        edtYourFeedback.setText("")
+                        edtYourFeedback.clearFocus()
+                    }
+                }
+            }
         }
     }
 

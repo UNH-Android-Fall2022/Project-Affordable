@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.affordable.R
 import com.affordable.base.BaseFragment
 import com.affordable.databinding.FragmentSplashBinding
+import com.affordable.ui.start.signup.SingupFragmentDirections
 import com.affordable.utility.isNav
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
@@ -26,6 +27,14 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
         activity = requireActivity() as AppCompatActivity
 
+        if (auth.currentUser != null) {
+            showProgress()
+            navController.isNav(R.id.splashFragment) {
+                navController.navigate(SplashFragmentDirections.actionSplashFragmentToMainActivity())
+                activity.finish()
+                hideProgress()
+            }
+        }
 
     }
 

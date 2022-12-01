@@ -22,6 +22,18 @@
         <action
             android:id="@+id/action_settingsFragment_to_startActivity"
             app:destination="@id/startActivity" />
+        <action
+            android:id="@+id/action_settingsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_storesFragment"
+            app:destination="@id/storesFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -36,7 +48,11 @@
         android:id="@+id/cardsFragment"
         android:name="com.affordable.ui.main.cards.CardsFragment"
         android:label="Cards"
-        tools:layout="@layout/fragment_cards" />
+        tools:layout="@layout/fragment_cards" >
+        <action
+            android:id="@+id/action_cardsFragment_to_cardSelectionFragment"
+            app:destination="@id/cardSelectionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/feedbackFragment"
         android:name="com.affordable.ui.main.feedback.FeedbackFragment"
@@ -51,4 +67,51 @@
         android:name="com.affordable.ui.start.StartActivity"
         android:label="activity_start"
         tools:layout="@layout/activity_start" />
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.affordable.ui.main.privacy.PrivacyPolicyFragment"
+        android:label="Privacy Policy"
+        tools:layout="@layout/fragment_privacy_policy" />
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.affordable.ui.main.shopping.ShoppingFragment"
+        android:label="Shopping Preferences"
+        tools:layout="@layout/fragment_shopping" >
+        <action
+            android:id="@+id/action_shoppingFragment_to_shoppingSelectionFragment"
+            app:destination="@id/shoppingSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storesFragment"
+        android:name="com.affordable.ui.main.stores.StoresFragment"
+        android:label="Stores Preferences"
+        tools:layout="@layout/fragment_stores" >
+        <action
+            android:id="@+id/action_storesFragment_to_choiceSelectionFragment"
+            app:destination="@id/choiceSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiceSelectionFragment"
+        android:name="com.affordable.ui.main.preferences.choiceSelection.ChoiceSelectionFragment"
+        android:label="Stores Selection" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingSelectionFragment"
+        android:name="com.affordable.ui.main.preferences.shoppingSelection.ShoppingSelectionFragment"
+        android:label="Shopping Categories" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardSelectionFragment"
+        android:name="com.affordable.ui.main.preferences.cardSelection.CardSelectionFragment"
+        android:label="Cards Selection" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
 </navigation>

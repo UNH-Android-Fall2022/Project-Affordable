@@ -1,9 +1,8 @@
 package com.affordable.data.models
 
 data class CardsModel(
-    val cardId: Int,
-    val cardType: String,
-    val cardCVC: String,
-    val cardUrl:Int,
+    val cardId: String,
+    val cardName: String,
+    val cardUrl:String,
     var isSelected: Boolean
 )

@@ -19,12 +19,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.affordable.R
+import com.affordable.data.network.*
+import com.affordable.ui.main.home.GpsTracker
 import com.affordable.utility.NetworkHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 abstract class BaseFragment<VB> : Fragment() {
+
+    private val TAG = BaseFragment::class.java.name
 
     private var mDialog: Dialog? = null
     private var mBinding: VB? = null
@@ -37,6 +44,18 @@ abstract class BaseFragment<VB> : Fragment() {
     protected lateinit var auth: FirebaseAuth
 
     protected lateinit var networkHelper: NetworkHelper
+
+    protected var userLattitude: String = ""
+    protected var userLongitude: String = ""
+
+    protected var userModel: UserModel? = null
+    protected var shoppingPreferenceModelList: ArrayList<ShoppingPreferenceModel> = ArrayList()
+    protected var storesPreferenceModelList: ArrayList<StoresPreferenceModel> = ArrayList()
+    protected var cardsPreferenceModelList: ArrayList<UserCardPreferenceModel> = ArrayList()
+
+    val requestCodeLocationPermission: Int = 101
+
+    protected var gpsTracker: GpsTracker? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,14 +125,11 @@ abstract class BaseFragment<VB> : Fragment() {
             Activity.INPUT_METHOD_SERVICE
         ) as InputMethodManager
         if (inputMethodManager.isAcceptingText()) {
-            if (requireActivity().currentFocus != null)
-                inputMethodManager.hideSoftInputFromWindow(
-                    requireActivity().currentFocus!!.windowToken,
-                    0
-                )
+            if (requireActivity().currentFocus != null) inputMethodManager.hideSoftInputFromWindow(
+                requireActivity().currentFocus!!.windowToken, 0
+            )
         }
-        if (view.hasFocus())
-            view.clearFocus()
+        if (view.hasFocus()) view.clearFocus()
     }
 
     open fun copyToClipboard(text: String) {
@@ -135,4 +151,359 @@ abstract class BaseFragment<VB> : Fragment() {
         mBinding = null
     }
 
+    /// Firebase Functions
+
+    fun getUserProfile(callback: (UserModel) -> Unit) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("Users").document(userId).get().addOnSuccessListener {
+                userModel = it.toObject<UserModel>()!!
+                callback(userModel!!)
+                hideProgress()
+            }.addOnFailureListener {
+                hideProgress()
+            }.addOnCanceledListener {
+                hideProgress()
+            }
+        }
+    }
+
+    fun updateUserProfile(
+        dob: String, firstname: String, lastname: String, callback: (String) -> Unit
+    ) {
+        showProgress()
+        val newData = hashMapOf(
+            "firstName" to firstname,
+            "lastName" to lastname,
+            "dob" to dob,
+        )
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("Users").document(userId).update(newData as Map<String, Any>)
+                .addOnSuccessListener {
+                    hideProgress()
+                    callback("Profile Updated")
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Profile Update Failed")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Profile Update Cancelled")
+                }
+        }
+    }
+
+    fun getPrivacyPolicy(
+        callback: (PrivacyPolicyModel) -> Unit
+    ) {
+        showProgress()
+        mFirestore.collection("PrivacyPolicy").get().addOnSuccessListener {
+            callback(it.documents[0].toObject<PrivacyPolicyModel>()!!)
+            hideProgress()
+        }.addOnFailureListener {
+            hideProgress()
+        }.addOnCanceledListener {
+            hideProgress()
+        }
+    }
+
+    fun submitFeedback(rating: String, message: String, callback: (String) -> Unit) {
+        showProgress()
+        val df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val formattedDate: String = df.format(Date().time)
+        auth.currentUser?.uid?.let { userId ->
+            val feedback = FeedbackModel(
+                rating,
+                message,
+                formattedDate,
+                userId
+            )
+            mFirestore
+                .collection("Feedback")
+                .document()
+                .set(feedback)
+                .addOnSuccessListener {
+                    hideProgress()
+                    callback("Feedback Shared")
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Feedback Failed")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Feedback Cancelled")
+                }
+        }
+    }
+
+    fun getUserShoppingPreferences(callback: (ArrayList<ShoppingPreferenceModel>) -> Unit) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("ShoppingPreferences")
+                .get()
+                .addOnSuccessListener {
+                    val list: ArrayList<ShoppingPreferenceModel> = ArrayList()
+                    for (document in it.documents) {
+                        document.toObject<ShoppingPreferenceModel>()
+                            ?.let { it1 -> list.add(it1) }
+                    }
+                    callback(list)
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                }.addOnCanceledListener {
+                    hideProgress()
+                }
+        }
+    }
+
+    fun addUserShoppingPreferences(
+        shoppingPreferenceModel: ShoppingPreferenceModel,
+        callback: (String) -> Unit
+    ) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("ShoppingPreferences")
+                .document(shoppingPreferenceModel.id)
+                .set(shoppingPreferenceModel)
+                .addOnSuccessListener {
+                    callback("Saved")
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Error")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Cancel")
+                }
+        }
+    }
+
+    fun getAllShoppingPreferences(callback: (ArrayList<ShoppingPreferenceModel>) -> Unit) {
+        showProgress()
+        mFirestore.collection("ShoppingCategories")
+            .get()
+            .addOnSuccessListener {
+                val list: ArrayList<ShoppingPreferenceModel> = ArrayList()
+                for (document in it.documents) {
+                    document.toObject<ShoppingPreferenceModel>()
+                        ?.let { it1 -> list.add(it1) }
+                }
+                shoppingPreferenceModelList = list
+                callback(list)
+                hideProgress()
+            }.addOnFailureListener {
+                hideProgress()
+            }.addOnCanceledListener {
+                hideProgress()
+            }
+    }
+
+    fun deleteUserShoppingPreference(
+        shoppingPreferenceModel: ShoppingPreferenceModel,
+        callback: (String) -> Unit
+    ) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("ShoppingPreferences")
+                .document(shoppingPreferenceModel.id)
+                .delete()
+                .addOnSuccessListener {
+                    callback("Deleted")
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Error")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Cancel")
+                }
+        }
+    }
+
+    fun getUserStoresPreferences(callback: (ArrayList<StoresPreferenceModel>) -> Unit) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("StoresPreferences")
+                .get()
+                .addOnSuccessListener {
+                    val list: ArrayList<StoresPreferenceModel> = ArrayList()
+                    for (document in it.documents) {
+                        document.toObject<StoresPreferenceModel>()
+                            ?.let { it1 -> list.add(it1) }
+                    }
+                    callback(list)
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                }.addOnCanceledListener {
+                    hideProgress()
+                }
+        }
+    }
+
+    fun getAllStoresPreferences(callback: (ArrayList<StoresPreferenceModel>) -> Unit) {
+        showProgress()
+        mFirestore.collection("Stores")
+            .get()
+            .addOnSuccessListener {
+                val list: ArrayList<StoresPreferenceModel> = ArrayList()
+                for (document in it.documents) {
+                    document.toObject<StoresPreferenceModel>()
+                        ?.let { it1 -> list.add(it1) }
+                }
+                storesPreferenceModelList = list
+                callback(list)
+                hideProgress()
+            }.addOnFailureListener {
+                hideProgress()
+            }.addOnCanceledListener {
+                hideProgress()
+            }
+    }
+
+    fun addUserStorePreferences(
+        storePreferenceModel: StoresPreferenceModel,
+        callback: (String) -> Unit
+    ) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("StoresPreferences")
+                .document(storePreferenceModel.id)
+                .set(storePreferenceModel)
+                .addOnSuccessListener {
+                    callback("Saved")
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Error")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Cancel")
+                }
+        }
+    }
+
+    fun deleteUserStorePreference(
+        storePreferenceModel: StoresPreferenceModel,
+        callback: (String) -> Unit
+    ) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("StoresPreferences")
+                .document(storePreferenceModel.id)
+                .delete()
+                .addOnSuccessListener {
+                    callback("Deleted")
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Error")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Cancel")
+                }
+        }
+    }
+
+    fun getUserCardsPreferences(callback: (ArrayList<UserCardPreferenceModel>) -> Unit) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("CardsPreferences")
+                .get()
+                .addOnSuccessListener {
+                    val list: ArrayList<UserCardPreferenceModel> = ArrayList()
+                    for (document in it.documents) {
+                        document.toObject<UserCardPreferenceModel>()
+                            ?.let { it1 -> list.add(it1) }
+                    }
+                    callback(list)
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                }.addOnCanceledListener {
+                    hideProgress()
+                }
+        }
+    }
+
+    fun getAllCardsPreferences(callback: (ArrayList<UserCardPreferenceModel>) -> Unit) {
+        showProgress()
+        mFirestore.collection("Card Type")
+            .get()
+            .addOnSuccessListener {
+                val list: ArrayList<UserCardPreferenceModel> = ArrayList()
+                for (document in it.documents) {
+                    document.toObject<UserCardPreferenceModel>()
+                        ?.let { it1 -> list.add(it1) }
+                }
+                cardsPreferenceModelList = list
+                callback(list)
+                hideProgress()
+            }.addOnFailureListener {
+                hideProgress()
+            }.addOnCanceledListener {
+                hideProgress()
+            }
+    }
+
+    fun addUserCardPreferences(
+        cardPreferenceModel: UserCardPreferenceModel,
+        callback: (String) -> Unit
+    ) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("CardsPreferences")
+                .document(cardPreferenceModel.id)
+                .set(cardPreferenceModel)
+                .addOnSuccessListener {
+                    callback("Saved")
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Error")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Cancel")
+                }
+        }
+    }
+
+    fun deleteUserCardPreference(
+        userCardPreferenceModel: UserCardPreferenceModel,
+        callback: (String) -> Unit
+    ) {
+        showProgress()
+        auth.currentUser?.uid?.let { userId ->
+            mFirestore.collection("UserPreferences")
+                .document(userId)
+                .collection("CardsPreferences")
+                .document(userCardPreferenceModel.id)
+                .delete()
+                .addOnSuccessListener {
+                    callback("Deleted")
+                    hideProgress()
+                }.addOnFailureListener {
+                    hideProgress()
+                    callback("Error")
+                }.addOnCanceledListener {
+                    hideProgress()
+                    callback("Cancel")
+                }
+        }
+    }
 }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.affordable.R
 import com.affordable.base.BaseFragment
 import com.affordable.databinding.FragmentSettingsBinding
+import com.affordable.utility.addClickEffect
 import com.affordable.utility.isNav
 
 
@@ -34,10 +35,37 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
     override fun initListener() {
 
         with(binding!!) {
+
             logout.setOnClickListener {
                 navController.isNav(R.id.settingsFragment) {
+                    auth.signOut();
                     navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToStartActivity())
                     activity.finish()
+                    showToastShort("Logout")
+                }
+            }
+
+            myAccount.setOnClickListener {
+                navController.isNav(R.id.settingsFragment) {
+                    navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToAccountFragment())
+                }
+            }
+
+            shoppingPreference.setOnClickListener {
+                navController.isNav(R.id.settingsFragment) {
+                    navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToShoppingFragment())
+                }
+            }
+
+            storesPreference.setOnClickListener {
+                navController.isNav(R.id.settingsFragment) {
+                    navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToStoresFragment())
+                }
+            }
+
+            privacy.setOnClickListener {
+                navController.isNav(R.id.settingsFragment) {
+                    navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToPrivacyPolicyFragment())
                 }
             }
         }

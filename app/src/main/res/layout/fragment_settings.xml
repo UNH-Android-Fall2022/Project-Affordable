@@ -26,14 +26,13 @@
 
 
             <TextView
+                android:id="@+id/myAccount"
                 style="@style/TextViewStyle30B"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:layout_margin="@dimen/_14sdp"
-                android:padding="@dimen/_4sdp"
+                android:padding="@dimen/_18sdp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Personal Info"
+                android:text="My Account"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -44,32 +43,47 @@
                 android:alpha="0.2"></View>
 
             <TextView
+                android:id="@+id/shoppingPreference"
                 style="@style/TextViewStyle30B"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:layout_margin="@dimen/_14sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Shopping Preferences"
+                android:padding="@dimen/_18sdp"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/black"
+                android:alpha="0.2"></View>
+
+            <TextView
+                android:id="@+id/storesPreference"
+                style="@style/TextViewStyle30B"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_18sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Stores Preferences"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/black"
+                android:alpha="0.2"></View>
+
+            <TextView
+                android:id="@+id/privacy"
+                style="@style/TextViewStyle30B"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_18sdp"
                 android:fontFamily="@font/inter_bold"
                 android:text="Privacy"
-                android:padding="@dimen/_4sdp"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/black"
-                android:alpha="0.2"></View>
-
-            <TextView
-                style="@style/TextViewStyle30B"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:padding="@dimen/_4sdp"
-                android:layout_margin="@dimen/_14sdp"
-                android:fontFamily="@font/inter_bold"
-                android:text="App Preferences"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -84,9 +98,7 @@
                 style="@style/TextViewStyle30B"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:padding="@dimen/_4sdp"
-                android:layout_margin="@dimen/_14sdp"
+                android:padding="@dimen/_18sdp"
                 android:fontFamily="@font/inter_bold"
                 android:text="Logout"
                 android:textColor="@color/black"

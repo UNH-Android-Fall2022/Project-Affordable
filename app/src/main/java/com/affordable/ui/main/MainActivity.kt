@@ -20,6 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private val TAG = StartActivity::class.java.name
 
+    private var bottomNavigationView: BottomNavigationView? = null
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navView: NavigationView
@@ -45,7 +46,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             AppBarConfiguration.Builder(
                 R.id.homeFragment,
                 R.id.settingsFragment,
-                R.id.accountFragment,
                 R.id.cardsFragment,
                 R.id.feedbackFragment
             )
@@ -58,13 +58,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment -> hideNav()
+                R.id.loginFragment,
+                R.id.accountFragment,
+                R.id.shoppingFragment,
+                R.id.storesFragment,
+                R.id.privacyPolicyFragment,
+                R.id.shoppingSelectionFragment,
+                R.id.choiceSelectionFragment,
+                R.id.cardSelectionFragment-> hideNav()
                 else -> showNav()
             }
         }
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-        bottomNavigationView.setupWithNavController(navController)
+        bottomNavigationView = findViewById(R.id.bottomNavigation)
+        bottomNavigationView?.setupWithNavController(navController)
 
     }
 
@@ -79,11 +86,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun showNav() {
         (findViewById(R.id.toolbar) as androidx.appcompat.widget.Toolbar).visibility = View.VISIBLE
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        bottomNavigationView?.visibility = View.VISIBLE
     }
 
     private fun hideNav() {
-        (findViewById(R.id.toolbar) as androidx.appcompat.widget.Toolbar).visibility = View.GONE
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+//        (findViewById(R.id.toolbar) as androidx.appcompat.widget.Toolbar).visibility = View.GONE
+//        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        bottomNavigationView?.visibility = View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {

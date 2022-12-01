@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_4sdp"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:layout_marginHorizontal="@dimen/_2sdp"
             app:cardCornerRadius="@dimen/_20sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +58,7 @@
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/inter_medium"
                         android:textSize="12sp"
-                        android:text="Full Name"
+                        android:text="First Name"
                         android:textColor="@color/grayDarkColor" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -91,7 +91,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/fullname"
+                            android:id="@+id/firstname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             style="@style/TextViewStyle13M"
@@ -99,7 +99,7 @@
                             android:fontFamily="@font/inter_medium"
                             android:textCursorDrawable="@drawable/cursor_color"
                             android:textSize="14sp"
-                            android:hint="Your Full Name"
+                            android:hint="First Name"
                             android:inputType="text"
                             android:maxLength="255"
                             android:text=""
@@ -114,6 +114,196 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/TextViewStyle15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:fontFamily="@font/inter_medium"
+                        android:textSize="12sp"
+                        android:text="Last Name"
+                        android:textColor="@color/grayDarkColor" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:textColorHint="@color/grayColor"
+                        app:boxBackgroundColor="@android:color/white"
+                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                        app:boxStrokeColor="@color/edittext_stroke_color"
+                        app:boxStrokeWidth="2dp"
+
+                        app:errorEnabled="true"
+                        app:errorTextColor="@color/primaryColor"
+                        app:errorTextAppearance="@style/TextViewStyle11Error"
+                        app:boxStrokeErrorColor="@color/purpleLightColor"
+                        app:errorIconDrawable="@null"
+
+                        app:hintEnabled="false"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:hintTextColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/lastname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/TextViewStyle13M"
+                            android:ems="15"
+                            android:fontFamily="@font/inter_medium"
+                            android:textCursorDrawable="@drawable/cursor_color"
+                            android:textSize="14sp"
+                            android:hint="Last Name"
+                            android:inputType="text"
+                            android:maxLength="255"
+                            android:text=""
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextViewStyle15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:fontFamily="@font/inter_medium"
+                        android:textSize="12sp"
+                        android:text="Date of Birth"
+                        android:textColor="@color/grayDarkColor" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:textColorHint="@color/grayColor"
+                        app:boxBackgroundColor="@android:color/white"
+                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                        app:boxStrokeColor="@color/edittext_stroke_color"
+                        app:boxStrokeWidth="2dp"
+
+                        app:errorEnabled="true"
+                        app:errorTextColor="@color/primaryColor"
+                        app:errorTextAppearance="@style/TextViewStyle11Error"
+                        app:boxStrokeErrorColor="@color/purpleLightColor"
+                        app:errorIconDrawable="@null"
+
+                        app:hintEnabled="false"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:hintTextColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/dob"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/TextViewStyle13M"
+                            android:ems="15"
+                            android:fontFamily="@font/inter_medium"
+                            android:textCursorDrawable="@drawable/cursor_color"
+                            android:textSize="14sp"
+                            android:hint="Date of Birth"
+                            android:clickable="true"
+                            android:inputType="text"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:textIsSelectable="true"
+                            android:maxLength="255"
+                            android:focusable="false"
+                            android:text=""
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextViewStyle15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:fontFamily="@font/inter_medium"
+                        android:textSize="12sp"
+                        android:text="User Name"
+                        android:textColor="@color/grayDarkColor" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:inputType="text"
+                        android:textColorHint="@color/grayColor"
+                        app:boxBackgroundColor="@android:color/white"
+                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                        app:boxStrokeColor="@color/edittext_stroke_color"
+                        app:boxStrokeWidth="2dp"
+
+                        app:errorEnabled="true"
+                        app:errorTextColor="@color/primaryColor"
+                        app:errorTextAppearance="@style/TextViewStyle11Error"
+                        app:boxStrokeErrorColor="@color/purpleLightColor"
+                        app:errorIconDrawable="@null"
+
+                        app:hintEnabled="false"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:hintTextColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/TextViewStyle13M"
+                            android:ems="15"
+                            android:fontFamily="@font/inter_medium"
+                            android:textCursorDrawable="@drawable/cursor_color"
+                            android:textSize="14sp"
+                            android:hint="User Name"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:maxLength="255"
+                            android:text=""
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/emailOrPhone"
                         style="@style/TextViewStyle15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -163,77 +353,15 @@
                             android:hint="Your Email"
                             android:inputType="text"
                             android:text=""
+                            android:enabled="false"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/TextViewStyle15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_6sdp"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="Password"
-                        android:textColor="@color/grayDarkColor"
-                        android:textSize="12sp" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/passwordLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:inputType="textPassword"
-                        android:textColorHint="@color/grayColor"
-                        app:boxBackgroundColor="@android:color/white"
-                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
-                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
-                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
-                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
-                        app:boxStrokeColor="@color/edittext_stroke_color"
-                        app:boxStrokeErrorColor="@color/colorError"
-                        app:boxStrokeWidth="2dp"
-
-                        app:errorEnabled="true"
-                        app:errorIconDrawable="@null"
-                        app:errorTextAppearance="@style/TextViewStyle11Error"
-                        app:errorTextColor="@color/colorError"
-                        app:hintEnabled="false"
-
-                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
-                        app:hintTextColor="@color/black"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:passwordToggleEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/password"
-                            style="@style/TextViewStyle13M"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="15"
-                            android:fontFamily="@font/inter_medium"
-                            android:hint="Your Password"
-                            android:textCursorDrawable="@drawable/cursor_color"
-                            android:inputType="textPassword"
-                            android:text=""
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/continueSignup"
+                    android:id="@+id/saveUpdate"
                     style="@style/TextViewStyle11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

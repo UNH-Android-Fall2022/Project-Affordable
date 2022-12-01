@@ -5,71 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    android:paddingHorizontal="@dimen/_16sdp"
-    android:paddingTop="@dimen/_16sdp"
     android:scrollbars="none"
     android:theme="@style/Theme.MaterialComponents.Light">
 
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_margin="@dimen/_16sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <TextView
-            style="@style/TextViewStyle30B"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:fontFamily="@font/inter_bold"
-            android:text="It seems you have not added any cards yet"
-            android:textColor="@color/blueLightColor"
-            android:textSize="16sp" />
-
-        <TextView
-            style="@style/TextViewStyle30B"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:fontFamily="@font/inter_bold"
-            android:gravity="center_horizontal"
-            android:text="Please go ahead and add your card type by clicking then + icon on the bottom right corner "
-            android:textColor="@color/greenColor"
-            android:textSize="16sp" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cardsRecyclerview"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_12sdp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:scrollbarSize="2dp"
-            android:scrollbarThumbVertical="@color/black"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="3"
-            tools:listitem="@layout/item_cards"
-            tools:itemCount="3" />
+            android:layout_margin="@dimen/_14sdp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="@drawable/bg_rounded_blue_border"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/filterItems"
+                    app:queryBackground="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Search Item"
+                    app:iconifiedByDefault="false"
+                    app:searchHintIcon="@drawable/ic_baseline_search_24"
+                    android:padding="8dp"
+                    android:text=""
+                    android:textSize="14sp"></androidx.appcompat.widget.SearchView>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cardsRecyclerview"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:scrollbarSize="2dp"
+                android:scrollbarThumbVertical="@color/black"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:spanCount="1"
+                tools:listitem="@layout/item_user_card_preference"
+                tools:itemCount="10" />
 
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:backgroundTint="@color/redColor"
-        android:src="@drawable/ic_baseline_add_24"
-        app:tint="@color/white"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/_12sdp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
+        android:backgroundTint="@color/redColor"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24"
+        app:tint="@color/white" />
 
 </RelativeLayout>

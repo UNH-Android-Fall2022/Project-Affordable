@@ -43,7 +43,7 @@ private fun provideApiService(retrofit: Retrofit): ApiService =
 
 private fun Scope.retrofitBuilder(): Retrofit {
     return Retrofit.Builder()
-        .baseUrl("https://www.")
+        .baseUrl("https://maps.googleapis.com/maps/api/")
         .addConverterFactory(GsonConverterFactory.create(get()))
         .client(get())
         .build()

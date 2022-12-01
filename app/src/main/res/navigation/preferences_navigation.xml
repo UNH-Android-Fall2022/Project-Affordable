@@ -16,6 +16,10 @@
         <action
             android:id="@+id/action_cardSelectionFragment_to_mainActivity2"
             app:destination="@id/mainActivity2" />
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="New" />
     </fragment>
     <fragment
         android:id="@+id/choiceSelectionFragment"
@@ -28,6 +32,9 @@
         <action
             android:id="@+id/action_choiceSelectionFragment_to_mainActivity2"
             app:destination="@id/mainActivity2" />
+        <argument
+            android:name="type"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/shoppingSelectionFragment"
@@ -37,6 +44,9 @@
         <action
             android:id="@+id/action_shoppingSelectionFragment_to_thanksFragment"
             app:destination="@id/thanksFragment" />
+        <argument
+            android:name="type"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/thanksFragment"

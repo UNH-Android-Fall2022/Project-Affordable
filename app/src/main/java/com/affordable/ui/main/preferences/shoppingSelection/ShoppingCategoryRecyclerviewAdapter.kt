@@ -14,7 +14,7 @@ class ShoppingCategoryRecyclerviewAdapter(
     private val listener: OnPositionClick
 ) : RecyclerView.Adapter<ShoppingCategoryRecyclerviewAdapter.ViewHolder>() {
 
-    private var mainList = mutableListOf<ShoppingCategoryModel>()
+    var mainList = mutableListOf<ShoppingCategoryModel>()
 
     fun setData(list: ArrayList<ShoppingCategoryModel>) {
         mainList = list
@@ -37,15 +37,15 @@ class ShoppingCategoryRecyclerviewAdapter(
 
                 binding.text.text = this.categoryName
 
+                binding.radioBtn.isChecked = this.isSelected
+
+                binding.radioBtn.setOnClickListener {
+                    this.isSelected = !this.isSelected
+                    listener.onItemClick(this@with,position)
+                }
                 binding.cardview.setOnClickListener {
-                    if (binding.radioBtn.isChecked) {
-                        binding.radioBtn.isChecked = false
-                        this.isSelected = false
-                    } else {
-                        binding.radioBtn.isChecked = true
-                        this.isSelected = true
-                    }
-                    listener.onItemClick(this@with)
+                    this.isSelected = !this.isSelected
+                    listener.onItemClick(this@with,position)
                 }
             }
         }
@@ -56,6 +56,6 @@ class ShoppingCategoryRecyclerviewAdapter(
     }
 
     interface OnPositionClick {
-        fun onItemClick(position: ShoppingCategoryModel)
+        fun onItemClick(model: ShoppingCategoryModel,position:Int)
     }
 }

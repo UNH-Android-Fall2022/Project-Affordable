@@ -39,8 +39,8 @@
             android:layout_gravity="center"
             android:fontFamily="@font/inter_medium"
             app:defaultValue="OKAY"
-            app:showAllText="false"
-            app:showText="false"
+            app:showAllText="true"
+            app:showText="true"
             app:titleColor="#844848" />
 
         <EditText
@@ -62,7 +62,7 @@
             android:textColorHint="@color/grayColor" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/next"
+            android:id="@+id/sendFeedback"
             style="@style/TextViewStyle11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

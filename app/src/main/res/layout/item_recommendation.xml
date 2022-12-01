@@ -15,7 +15,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -28,7 +28,74 @@
                 android:src="@drawable/store_img"
                 />
 
-        </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/placename"
+                    style="@style/TextViewStyle15B"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start"
+                    android:text=""
+                    android:paddingRight="@dimen/_4sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="@dimen/_14ssp" />
+
+                <ImageView
+                    android:id="@+id/directions"
+                    android:layout_width="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_outline_directions_24"
+                    app:tint="@color/primaryDarkColor"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/openedOrNot"
+                    style="@style/TextViewStyle15B"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textStyle="normal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+                <TextView
+                    android:id="@+id/rating"
+                    style="@style/TextViewStyle15B"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textStyle="normal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

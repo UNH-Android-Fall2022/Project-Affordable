@@ -41,37 +41,11 @@
                 android:textColor="@color/blueLightColor"
                 android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginVertical="@dimen/_8sdp"
-                android:background="@drawable/bg_rounded_blue_border"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/filterItems"
-                    app:queryBackground="@null"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:hint="Search Item"
-                    app:iconifiedByDefault="false"
-                    app:searchHintIcon="@drawable/ic_baseline_search_24"
-                    android:padding="8dp"
-                    android:text=""
-                    android:textSize="14sp"></androidx.appcompat.widget.SearchView>
-
-            </LinearLayout>
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/shoppingsRecyclerview"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
@@ -84,6 +58,7 @@
 
 
             <LinearLayout
+                android:id="@+id/newLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -118,6 +93,54 @@
                     android:paddingVertical="@dimen/_10sdp"
                     android:shadowColor="@color/grayColor"
                     android:text="Next"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    android:visibility="visible"
+                    app:cornerRadius="@dimen/_8sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/oldLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/selectAllAndAdd"
+                    style="@style/TextViewStyle11B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded_black"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:fontFamily="@font/inter_bold"
+                    android:padding="@dimen/_12sdp"
+                    android:text="Select All &amp; Add"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add"
+                    style="@style/TextViewStyle11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/blueLightColor"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:shadowColor="@color/grayColor"
+                    android:text="Add"
                     android:textColor="@color/whiteColor"
                     android:textSize="14sp"
                     android:textStyle="bold"

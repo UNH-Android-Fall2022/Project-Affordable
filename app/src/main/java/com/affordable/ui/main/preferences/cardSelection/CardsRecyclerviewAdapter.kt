@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.affordable.R
 import com.affordable.data.models.CardsModel
 import com.affordable.databinding.ItemCardsBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 
 class CardsRecyclerviewAdapter(
@@ -14,7 +17,12 @@ class CardsRecyclerviewAdapter(
     private val listener: OnPositionClick
 ) : RecyclerView.Adapter<CardsRecyclerviewAdapter.ViewHolder>() {
 
-    private var mainList = mutableListOf<CardsModel>()
+    var mainList = mutableListOf<CardsModel>()
+
+    val options: RequestOptions = RequestOptions()
+        .fitCenter()
+        .placeholder(R.drawable.ic_logo_rounded)
+        .error(R.drawable.ic_outline_error_24)
 
     fun setData(list: ArrayList<CardsModel>) {
         mainList = list
@@ -37,17 +45,17 @@ class CardsRecyclerviewAdapter(
 
                 binding.image.visibility = View.VISIBLE
 
-                binding.image.setImageResource(this.cardUrl)
+                Glide.with(context).load(this.cardUrl).apply(options).into(binding.image);
 
+                binding.radioBtn.isChecked = this.isSelected
+
+                binding.radioBtn.setOnClickListener {
+                    this.isSelected = !this.isSelected
+                    listener.onItemClick(this@with, position)
+                }
                 binding.cardview.setOnClickListener {
-                    if (binding.radioBtn.isChecked) {
-                        binding.radioBtn.isChecked = false
-                        this.isSelected = false
-                    } else {
-                        binding.radioBtn.isChecked = true
-                        this.isSelected = true
-                    }
-                    listener.onItemClick(this@with)
+                    this.isSelected = !this.isSelected
+                    listener.onItemClick(this@with, position)
                 }
             }
         }
@@ -58,6 +66,6 @@ class CardsRecyclerviewAdapter(
     }
 
     interface OnPositionClick {
-        fun onItemClick(position: CardsModel)
+        fun onItemClick(model: CardsModel, position: Int)
     }
 }

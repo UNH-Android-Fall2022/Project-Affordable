@@ -207,42 +207,6 @@
 
 
                 <LinearLayout
-                    android:id="@+id/continueEmailLayout"
-                    android:layout_width="match_parent"
-                    android:clickable="true"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/bg_rounded_black"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_8sdp">
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:gravity="center"
-                        android:visibility="visible"
-                        android:src="@drawable/ic_gmail"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        />
-
-                    <TextView
-                        android:id="@+id/continueWithEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginRight="@dimen/_20sdp"
-                        android:gravity="center_horizontal"
-                        android:text="Continue with Email"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/continuePhoneLayout"
                     android:layout_width="match_parent"
                     android:clickable="true"
@@ -309,42 +273,6 @@
                         android:layout_marginRight="@dimen/_20sdp"
                         android:gravity="center_horizontal"
                         android:text="Continue with Google"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/continueFacebookLayout"
-                    android:layout_width="match_parent"
-                    android:clickable="true"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/bg_rounded_black"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_8sdp">
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:gravity="center"
-                        android:visibility="visible"
-                        android:src="@drawable/ic_facebook"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        />
-
-                    <TextView
-                        android:id="@+id/continueWithFacebook"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginRight="@dimen/_20sdp"
-                        android:gravity="center_horizontal"
-                        android:text="Continue with Facebook"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
