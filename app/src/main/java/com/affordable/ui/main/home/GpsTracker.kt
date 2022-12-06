@@ -1,5 +1,5 @@
 package com.affordable.ui.main.home
-
+//cited from https://github.com/d40cht/gps-android/blob/master/src/main/java/com/example/gpstracking/GPSTracker.java
 import android.Manifest
 import android.app.Activity
 import android.app.Service
