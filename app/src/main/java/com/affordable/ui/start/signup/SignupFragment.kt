@@ -235,7 +235,7 @@ class SingupFragment : BaseFragment<FragmentSignupBinding>() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
-
+//Cited from official firebase documentation : https://firebase.google.com/docs/auth/android/google-signin#kotlin+ktx_2
     private fun firebaseAuthWithGoogle(idToken: String, username: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -322,6 +322,8 @@ class SingupFragment : BaseFragment<FragmentSignupBinding>() {
         val credential = PhoneAuthProvider.getCredential(verificationId!!, code)
         signInWithPhoneAuthCredential(credential)
     }
+
+    //cited from official firebase documentation: https://firebase.google.com/docs/auth/android/phone-auth#kotlin+ktx_5
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
