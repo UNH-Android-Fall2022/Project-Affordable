@@ -1,3 +1,5 @@
+// Referred to article from https://medium.com/dailytech/login-with-google-using-firebase-689d1ca03cc0 to achieve a few funtionalities (google sign in)
+
 package com.affordable.ui.start.signup
 
 import android.content.Intent
