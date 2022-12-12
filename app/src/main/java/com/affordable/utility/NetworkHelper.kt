@@ -1,3 +1,4 @@
+//cited from https://github.com/MindorksOpenSource/Dagger-Hilt-Tutorial/blob/master/app/src/main/java/com/mindorks/framework/mvvm/utils/NetworkHelper.kt
 package com.affordable.utility
 
 import android.content.Context
