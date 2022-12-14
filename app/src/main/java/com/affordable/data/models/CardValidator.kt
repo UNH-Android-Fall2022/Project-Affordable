@@ -1,3 +1,4 @@
+//cited from https://github.com/ReGaSLZR/CardValidator-Android 
 package com.affordable.data.models
 
 val DEFAULT_CARD_FORMAT = "(\\d{1,4})"
