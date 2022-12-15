@@ -47,7 +47,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 R.id.homeFragment,
                 R.id.settingsFragment,
                 R.id.cardsFragment,
-                R.id.feedbackFragment
+                R.id.feedbackFragment,
+                R.id.thanksFragment
             )
                 .setOpenableLayout(drawerLayout)
                 .build()

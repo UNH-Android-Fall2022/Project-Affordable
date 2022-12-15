@@ -89,7 +89,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     hideProgress()
                     it.data?.let { data ->
                         // do with data
-                        Log.v(TAG, data.results.get(0).name)
                         originalNearPlaceModelList = data.results as ArrayList<Result>
                         homeRecyclerviewAdapter.setData(originalNearPlaceModelList)
                         setTotalStoresText(originalNearPlaceModelList)

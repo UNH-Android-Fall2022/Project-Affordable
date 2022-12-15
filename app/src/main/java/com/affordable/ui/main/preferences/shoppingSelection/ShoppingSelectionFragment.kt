@@ -115,7 +115,7 @@ class ShoppingSelectionFragment : BaseFragment<FragmentShoppingSelectionBinding>
                 activity.onBackPressed();
             }else{
                 navController.isNav(R.id.shoppingSelectionFragment) {
-                    navController.navigate(ShoppingSelectionFragmentDirections.actionShoppingSelectionFragmentToThanksFragment())
+                    navController.navigate(ShoppingSelectionFragmentDirections.actionShoppingSelectionFragmentToThanksFragment("New"))
                 }
             }
         }

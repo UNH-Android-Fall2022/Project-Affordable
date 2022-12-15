@@ -16,6 +16,10 @@ class Utils {
 
     companion object {
 
+        val CARD_PREFERENCE = "Card Preference"
+        val STORE_PREFERENCE = "Store Preference"
+        val SHOPPING_PREFERENCE = "Shopping Preference"
+
         fun isValidEmail(email: String?): Boolean {
             return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
         }
