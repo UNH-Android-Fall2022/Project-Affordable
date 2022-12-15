@@ -1,3 +1,4 @@
+//referred to https://github.com/SwiftFest/android-app/blob/master/app/src/main/java/io/swiftfest/www/swiftfest/utils/NotificationUtils.kt and made necessary changes matching to our application
 package com.affordable.utility
 
 import android.app.NotificationManager
