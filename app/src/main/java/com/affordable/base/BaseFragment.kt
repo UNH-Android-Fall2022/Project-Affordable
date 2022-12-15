@@ -52,6 +52,7 @@ abstract class BaseFragment<VB> : Fragment() {
     protected var shoppingPreferenceModelList: ArrayList<ShoppingPreferenceModel> = ArrayList()
     protected var storesPreferenceModelList: ArrayList<StoresPreferenceModel> = ArrayList()
     protected var cardsPreferenceModelList: ArrayList<UserCardPreferenceModel> = ArrayList()
+    protected var dealsList: ArrayList<DealsModel> = ArrayList()
 
     val requestCodeLocationPermission: Int = 101
 
@@ -152,6 +153,18 @@ abstract class BaseFragment<VB> : Fragment() {
     }
 
     /// Firebase Functions
+
+    fun fetchAllStoresCategoriesCards(callback: () -> Unit) {
+        getAllDeals {
+            getAllStoresPreferences {
+                getAllShoppingPreferences {
+                    getAllCardsPreferences {
+                        callback()
+                    }
+                }
+            }
+        }
+    }
 
     fun getUserProfile(callback: (UserModel) -> Unit) {
         showProgress()
@@ -450,6 +463,26 @@ abstract class BaseFragment<VB> : Fragment() {
                         ?.let { it1 -> list.add(it1) }
                 }
                 cardsPreferenceModelList = list
+                callback(list)
+                hideProgress()
+            }.addOnFailureListener {
+                hideProgress()
+            }.addOnCanceledListener {
+                hideProgress()
+            }
+    }
+
+    fun getAllDeals(callback: (ArrayList<DealsModel>) -> Unit) {
+        showProgress()
+        mFirestore.collection("Deals")
+            .get()
+            .addOnSuccessListener {
+                val list: ArrayList<DealsModel> = ArrayList()
+                for (document in it.documents) {
+                    document.toObject<DealsModel>()
+                        ?.let { it1 -> list.add(it1) }
+                }
+                dealsList = list
                 callback(list)
                 hideProgress()
             }.addOnFailureListener {

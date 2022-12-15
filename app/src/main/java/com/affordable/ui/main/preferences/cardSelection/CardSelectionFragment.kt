@@ -162,8 +162,9 @@ class CardSelectionFragment : BaseFragment<FragmentCardSelectionBinding>() {
         var num = num
         num = sanitizeEntry(num, true)
         if (Pattern.matches("^(54)", num) && num.length > 16) {
-            return CardValidator.MAESTRO
+            return CardValidator.VISA
         }
+
         val cards: Array<CardValidator> = CardValidator.values()
         for (i in cards.indices) {
             if (Pattern.matches(cards[i].cardPattern, num)) {
