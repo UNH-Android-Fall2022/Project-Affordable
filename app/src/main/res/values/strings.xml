@@ -3,4 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="googleMapApiKey">AIzaSyDCsRDB8T0VjnDw389k6JPoyo86nj5XBeE</string>
+
+    <string name="notification_channel_id" translatable="false">affordable_channel</string>
+    <string name="notification_channel_name" translatable="true">affordable</string>
+    <string name="notification_channel_description">Affordable Reminder</string>
+    <string name="notification_title">Affordable Alert</string>
 </resources>

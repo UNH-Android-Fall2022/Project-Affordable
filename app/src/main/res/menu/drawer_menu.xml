@@ -12,6 +12,11 @@
         android:title="Cards" />
 
     <item
+        android:id="@id/thanksFragment"
+        android:icon="@drawable/ic_round_card_giftcard_24"
+        android:title="Deals" />
+
+    <item
         android:id="@id/settingsFragment"
         android:icon="@drawable/ic_round_settings_24"
         android:title="Settings" />

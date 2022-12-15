@@ -114,4 +114,14 @@
             android:name="type"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/thanksFragment"
+        android:name="com.affordable.ui.main.preferences.deals.DealsFragment"
+        android:label="Deals"
+        tools:layout="@layout/fragment_deals">
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="Not New" />
+    </fragment>
 </navigation>
